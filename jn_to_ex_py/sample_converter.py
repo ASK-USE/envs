@@ -36,3 +36,16 @@ output_file_path = r"C:\Users\MOR-AK\AppData\Local\envs\jn_to_ex_py"
 
 # Aufruf der Funktion in den jewieligen Pfaden
 convert_notebook_to_python(input_to_convert, output_file_path)
+
+# Überprüfung des Dateinamens
+def check_file_name(file_path):
+    file_name = os.path.basename(file_path)
+    if file_name.endswith(".ipynb"):
+        return True
+    return False
+
+# Aufruf der Überprüfungsfunktion vor der Konvertierung
+if check_file_name(input_to_convert):
+    convert_notebook_to_python(input_to_convert, output_file_path)
+else:
+    print("Ungültiges Dateiformat. Der Dateiname muss mit '.ipynb' enden.")
