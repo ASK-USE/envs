@@ -3,9 +3,7 @@
 from nbconvert import PythonExporter
 import nbformat
 from datetime import datetime, timezone # erstellen von timestamps 
-import os # kann auch fortlaufender nummern erstellen = counter 
-# Zähler für die Nummerierung bei import os 
-# counter = 1 
+import os 
 
 # öffnen und ausführen des Notebooks
 def convert_notebook_to_python(input_file_path, output_file_path):
@@ -23,6 +21,7 @@ def convert_notebook_to_python(input_file_path, output_file_path):
     output_path = os.path.join(output_file_path
 , output_file_name)  # Pfad zur Ausgabedatei im angegebenen Verzeichnis erstellen  
     
+    # ausführung des Converters
     (body, resources) = python_exporter.from_notebook_node(nb)
     with open(output_path, "w") as f:
         f.write(body)
@@ -31,13 +30,5 @@ def convert_notebook_to_python(input_file_path, output_file_path):
 input_file_path = r"C:\Users\MOR-AK\AppData\Local\envs\jn_to_ex_py\notebooksample.ipynb"
 output_file_path = r"C:\Users\MOR-AK\AppData\Local\envs\jn_to_ex_py"
 
-convert_notebook_to_python(input_file_path, output_file_path) # Aufruf der Funktion mit den Pfaden
-
-"""# Konvertieren des Notebooks in eine Python-Datei mit fortlaufender Nummerierung
-while os.path.exists(f"conv_sample{counter}.py"):
-  counter += 1  
-
-# Speichern der konvertierten Python-Datei
-with open(f"conv_sample{counter}.py", "w") as f:
-    (body, resources) = python_exporter.from_notebook_node(nb)
-    f.write(body)"""
+# Aufruf der Funktion in den jewieligen Pfaden
+convert_notebook_to_python(input_file_path, output_file_path)
