@@ -7,7 +7,7 @@ import os
 
 # öffnen und ausführen des Notebooks
 def convert_notebook_to_python(input_to_convert, output_file_path):
-    with open(input_file_name, "r") as f:
+    with open(input_to_convert, "r") as f:
         nb = nbformat.read(f, as_version=4)
 
     # Erstellen des Python Exporters
