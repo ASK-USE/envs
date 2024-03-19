@@ -34,8 +34,8 @@ input_to_convert = os.path.join(allowed_input_path, input_file_name)
 # Pfad zum Ausgabeverzeichniss
 output_file_path = r"C:\Users\MOR-AK\AppData\Local\envs\jn_to_ex_py"
 
-# Aufruf der Funktion in den jewieligen Pfaden
-convert_notebook_to_python(input_to_convert, output_file_path)
+"""# Aufruf der Funktion in den jewieligen Pfaden
+convert_notebook_to_python(input_to_convert, output_file_path)"""
 
 # Überprüfung des Dateinamens
 def check_file_name(file_path):
