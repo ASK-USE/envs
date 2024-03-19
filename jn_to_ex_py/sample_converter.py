@@ -6,8 +6,8 @@ from datetime import datetime, timezone # erstellen von timestamps
 import os 
 
 # öffnen und ausführen des Notebooks
-def convert_notebook_to_python(input_file_path, output_file_path):
-    with open(input_file_path, "r") as f:
+def convert_notebook_to_python(input_to_convert, output_file_path):
+    with open(input_file_name, "r") as f:
         nb = nbformat.read(f, as_version=4)
 
     # Erstellen des Python Exporters
@@ -18,17 +18,21 @@ def convert_notebook_to_python(input_file_path, output_file_path):
 
     # Speichern der konvertierten Python-Datei mit dem Timestamp im Dateinamen
     output_file_name = f"conv_sample_{output_timestamp}utc.py"
-    output_path = os.path.join(output_file_path
+    output_path = os.path.join(output_file_path                               
 , output_file_name)  # Pfad zur Ausgabedatei im angegebenen Verzeichnis erstellen  
     
     # ausführung des Converters
     (body, resources) = python_exporter.from_notebook_node(nb)
     with open(output_path, "w") as f:
         f.write(body)
-        
-# Pfad zur Notebookdatei und Ausgabeverzeichniss
-input_file_path = r"C:\Users\MOR-AK\AppData\Local\envs\jn_to_ex_py\notebooksample.ipynb"
+
+# Definiere Pfad und Namen des Inputs
+allowed_input_path = r"C:\Users\MOR-AK\AppData\Local\envs\jn_to_ex_py"
+input_file_name = r"notebooksample.ipynb"
+input_to_convert = os.path.join(allowed_input_path, input_file_name)
+       
+# Pfad zum Ausgabeverzeichniss
 output_file_path = r"C:\Users\MOR-AK\AppData\Local\envs\jn_to_ex_py"
 
 # Aufruf der Funktion in den jewieligen Pfaden
-convert_notebook_to_python(input_file_path, output_file_path)
+convert_notebook_to_python(input_to_convert, output_file_path)
