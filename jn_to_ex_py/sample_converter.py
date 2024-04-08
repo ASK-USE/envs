@@ -27,7 +27,7 @@ def convert_notebook_to_python(input_to_convert, output_file_path):
 
     # Speichern der konvertierten Python-Datei mit der Timestamp im Dateinamen
     output_file_name = f"conv_sample_{output_timestamp}utc.py"
-    output_file_path = os.path.join(output_path, output_file_name)  # Pfad zur Ausgabedatei im angegebenen Verzeichnis erstellen  
+    output_file_path = os.path.join(output_file_path, output_file_name)  # Pfad zur Ausgabedatei im angegebenen Verzeichnis erstellen  
     
     # ausführung des Converters
     (body, resources) = python_exporter.from_notebook_node(nb)
