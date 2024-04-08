@@ -5,6 +5,13 @@ import nbformat
 from datetime import datetime, timezone # erstellen von timestamps 
 import os 
 
+# Aktuellen Pfad abrufen
+current_path = os.path.dirname(os.path.abspath(__file__))
+
+# Eingabe- und Ausgabepfad auf den aktuellen Pfad setzen
+input_path = current_path
+output_path = current_path
+
 # öffnen und ausführen des Notebooks
 def convert_notebook_to_python(input_to_convert, output_file_path):
     with open(input_to_convert, "r") as f:
@@ -27,12 +34,12 @@ def convert_notebook_to_python(input_to_convert, output_file_path):
         f.write(body)
 
 # Definiere Pfad und Namen des Inputs
-allowed_input_path = r"C:\Users\MOR-AK\AppData\Local\envs\jn_to_ex_py"
+input_path = current_path
 input_file_name = r"notebooksample.ipynb"
-input_to_convert = os.path.join(allowed_input_path, input_file_name)
+input_to_convert = os.path.join(input_path, input_file_name)
        
 # Pfad zum Ausgabeverzeichniss
-output_file_path = r"C:\Users\MOR-AK\AppData\Local\envs\jn_to_ex_py"
+output_path = current_path
 
 """# Aufruf der Funktion in den jewieligen Pfaden
 convert_notebook_to_python(input_to_convert, output_file_path)"""
@@ -46,6 +53,6 @@ def check_file_name(file_path):
 
 # Aufruf der Überprüfungsfunktion vor der Konvertierung
 if check_file_name(input_to_convert):
-    convert_notebook_to_python(input_to_convert, output_file_path)
+    convert_notebook_to_python(input_to_convert, output_path)
 else:
     print("Ungültiges Dateiformat. Der Dateiname muss mit '.ipynb' enden.")
