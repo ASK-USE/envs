@@ -10,8 +10,8 @@ from markdown_handler.markdown_converter import extract_and_display_images  # Im
 current_path = os.path.dirname(os.path.abspath(__file__))
 
 # Eingabe- und Ausgabepfad auf den aktuellen Pfad setzen
-input_path = current_path
-output_path = current_path
+input_path = os.path.join(current_path, input)
+output_path = os.path.join(current_path, output)
 
 # öffnen und ausführen des Notebooks
 def convert_notebook_to_python(input_to_convert, output_file_path):
