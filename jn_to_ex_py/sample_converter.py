@@ -4,7 +4,7 @@ from nbconvert import PythonExporter
 import nbformat
 from datetime import datetime, timezone # erstellen von timestamps 
 import os 
-from markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
+from markdown_handler.markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
 
 # Aktuellen Pfad abrufen
 current_path = os.path.dirname(os.path.abspath(__file__))
