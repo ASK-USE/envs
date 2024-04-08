@@ -4,6 +4,7 @@ from nbconvert import PythonExporter
 import nbformat
 from datetime import datetime, timezone # erstellen von timestamps 
 import os 
+from markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
 
 # Aktuellen Pfad abrufen
 current_path = os.path.dirname(os.path.abspath(__file__))
@@ -23,10 +24,9 @@ def convert_notebook_to_python(input_to_convert, output_file_path):
     # Generierung des Timestamps im Format "JJMMTT.hh-mm-ss"
     output_timestamp = datetime.now(timezone.utc).strftime("%y%m%d_%H-%M-%S")
 
-    # Speichern der konvertierten Python-Datei mit dem Timestamp im Dateinamen
+    # Speichern der konvertierten Python-Datei mit der Timestamp im Dateinamen
     output_file_name = f"conv_sample_{output_timestamp}utc.py"
-    output_path = os.path.join(output_file_path                               
-, output_file_name)  # Pfad zur Ausgabedatei im angegebenen Verzeichnis erstellen  
+    output_path = os.path.join(output_file_path, output_file_name)  # Pfad zur Ausgabedatei im angegebenen Verzeichnis erstellen  
     
     # ausführung des Converters
     (body, resources) = python_exporter.from_notebook_node(nb)
@@ -40,9 +40,6 @@ input_to_convert = os.path.join(input_path, input_file_name)
        
 # Pfad zum Ausgabeverzeichniss
 output_path = current_path
-
-"""# Aufruf der Funktion in den jewieligen Pfaden
-convert_notebook_to_python(input_to_convert, output_file_path)"""
 
 # Überprüfung des Dateinamens
 def check_file_name(file_path):
