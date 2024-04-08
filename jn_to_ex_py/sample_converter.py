@@ -42,8 +42,6 @@ def convert_notebook_to_python(input_to_convert, output_file_path):
 input_file_name = r"notebooksample.ipynb"
 input_to_convert = os.path.join(input_path, input_file_name)
        
-# Pfad zum Ausgabeverzeichniss
-output_path = current_path
 
 # Überprüfung des Dateinamens
 def check_file_name(file_path):
