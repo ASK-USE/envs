@@ -32,6 +32,9 @@ def convert_notebook_to_python(input_to_convert, output_file_path):
     (body, resources) = python_exporter.from_notebook_node(nb)
     with open(output_path, "w") as f:
         f.write(body)
+        
+    # Extrahiere und zeige Bilder aus Markdown-Blöcken
+    extract_and_display_images(input_to_convert)    
 
 # Definiere Pfad und Namen des Inputs
 input_path = current_path
