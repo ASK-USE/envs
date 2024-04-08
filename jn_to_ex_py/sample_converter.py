@@ -35,10 +35,10 @@ def convert_notebook_to_python(input_to_convert, output_file_path):
         f.write(body)
         
     # Extrahiere und zeige Bilder aus Markdown-Blöcken
-    extract_and_display_images(input_to_convert)    
+    extract_and_display_images(os.path.join(input_path, input_file_name))    
 
 # Definiere Pfad und Namen des Inputs
-input_path = current_path
+#input_path = current_path
 input_file_name = r"notebooksample.ipynb"
 input_to_convert = os.path.join(input_path, input_file_name)
        
