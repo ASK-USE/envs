@@ -1,3 +1,30 @@
+#markown_converter.py
+from PIL import Image
+import requests
+from io import BytesIO
+import re
+
+def extract_and_display_images(notebook_file):
+    with open(notebook_file, "r") as f:
+        notebook_content = f.read()
+
+    # Finde alle Bild-URLs im Markdown-Block
+    image_urls = re.findall(r"!\[.*?\]\((.*?)\)", notebook_content)
+
+    # Durchlaufe die URLs und lade und zeige die Bilder an
+    for url in image_urls:
+        response = requests.get(url)
+        if response.status_code == 200:
+            # Lade das Bild herunter und zeige es an
+            image_data = BytesIO(response.content)
+            img = Image.open(image_data)
+            img.show()
+        else:
+            print(f"Fehler beim Herunterladen des Bildes von der URL: {url}")
+
+
+
+"""
 import nbformat
 import requests
 from io import BytesIO
@@ -29,3 +56,4 @@ def extract_and_display_images(notebook_file):
             plt.imshow(img)
             plt.axis('off')  # optional: Achsen ausblenden
             plt.show()
+"""
