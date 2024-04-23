@@ -10,3 +10,14 @@ class MediaItem:
             "reference": self.reference,
             "metadata": self.metadata
         }
+        
+    def generate_media_info(notebook_content):
+        media_info = {
+            "images": {},
+            "videos": {},
+            # Weitere Medientypen können hier hinzugefügt werden
+        }
+    # Durchsuche den Notebook-Inhalt nach Medieninhalten
+    # und füge sie der Datenstruktur hinzu
+
+        return media_info
