@@ -11,7 +11,6 @@ class MediaItem:
             "metadata": self.metadata
         }
         
-    @staticmethod
     def generate_media_info(notebook_content):
         media_info = {
             "images": {},
@@ -20,13 +19,13 @@ class MediaItem:
         }
         
         # Durchsuche den Notebook-Inhalt nach Bildern
-        image_references = MediaItem.extract_images(notebook_content)
+        image_references = extract_images(notebook_content)
         for image_ref in image_references:
             image_item = MediaItem("image", image_ref)
             media_info["images"][f"image_{len(media_info['images'])}"] = image_item.to_dict()
 
         # Durchsuche den Notebook-Inhalt nach Videos
-        video_references = MediaItem.extract_videos(notebook_content)
+        video_references = extract_videos(notebook_content)
         for video_ref in video_references:
             video_item = MediaItem("video", video_ref)
             media_info["videos"][f"video_{len(media_info['videos'])}"] = video_item.to_dict()
@@ -36,15 +35,13 @@ class MediaItem:
 
         return media_info
     
-    @staticmethod
     def extract_images(notebook_content):
         # Implementierung zum Extrahieren der Bildverweise aus dem Notebook-Inhalt
         # ...
         return ["path/to/image1.png", "https://example.com/image2.jpg"]
     
     
-    @staticmethod
     def extract_videos(notebook_content):
-        # Implementierung zum Extrahieren der Videoverweise aus dem Notebook-Inhalt
+        # Implementierung zum Extrahieren der Bildverweise aus dem Notebook-Inhalt
         # ...
         return ["path/to/video.mp4", "https://example.com/video.mp4"]
