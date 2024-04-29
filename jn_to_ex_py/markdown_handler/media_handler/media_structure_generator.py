@@ -16,8 +16,13 @@ class MediaItem:
         media_info = {
             "images": {},
             "videos": {},
+            "links": {} 
             # Weitere Medientypen können hier hinzugefügt werden
         }
+        link_dict = MediaItem.generate_linked_media_info(notebook_content)  # Link-Dictionaries generieren
+        media_info["links"] = link_dict  # Link-Dictionaries in die Gesamtstruktur einfügen
+        
+
         
         # Durchsuche den Notebook-Inhalt nach Bildern
         image_references = MediaItem.extract_images(notebook_content)
@@ -34,7 +39,21 @@ class MediaItem:
         # Durchsuche den Notebook-Inhalt nach Medieninhalten
         # und füge sie der Datenstruktur hinzu
 
+        
+        
         return media_info
+    
+    @staticmethod
+    def generate_linked_media_info(notebook_content):       
+        link_dict = {
+            "type": "link",
+            "url": "https://example.com",
+            "metadata": {
+                "description": "A link to an example website",
+                "author": "John Doe"
+            }
+        }
+        return link_dict
     
     @staticmethod
     def extract_images(notebook_content):
@@ -48,3 +67,13 @@ class MediaItem:
         # Implementierung zum Extrahieren der Videoverweise aus dem Notebook-Inhalt
         # ...
         return ["path/to/video.mp4", "https://example.com/video.mp4"]
+
+class MediaHandler:
+    def __init__(self, notebook_path):
+        self.notebook_path = notebook_path
+    
+    def extract_media_references(self):
+        # Funktion zum Extrahieren der Mediendateien aus dem Notebook und Rückgabe ihrer Referenzen
+        media_references = []
+        # Code zum Extrahieren der Mediendateien aus dem Notebook und Hinzufügen ihrer Referenzen zur Liste media_references
+        return media_references
