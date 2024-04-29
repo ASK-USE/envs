@@ -1,3 +1,6 @@
+#media_structure_generator.py
+from url_validator import is_valid_url
+
 class MediaItem:
     def __init__(self, item_type, reference):
         self.type = item_type
@@ -40,6 +43,8 @@ class MediaHandler:
 
     @staticmethod
     def extract_links(notebook_content):
-        # Implementierung zum Extrahieren der Linkverweise aus dem Notebook-Inhalt
-        # ...
-        return ["https://example.com", "https://another-example.com"]
+        links = []
+        for url in notebook_content:
+            if is_valid_url(url):
+                links.append(url)
+        return links
