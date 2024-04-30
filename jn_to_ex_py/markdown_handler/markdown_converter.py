@@ -10,7 +10,7 @@ def extract_media_references(notebook_file):
     pass
 
 def main():
-    notebook_file = "path/to/notebook.ipynb"
+    notebook_file = "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/input/notebooksample.ipynb"
     
     # Konvertiere Markdown-Datei in Python-Datei
     convert_markdown_to_python(notebook_file)
