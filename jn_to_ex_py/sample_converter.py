@@ -35,7 +35,7 @@ def analyze_notebook(notebook_file):
 markdown_blocks, code_blocks = analyze_notebook(input_to_convert)
 
 # Konvertierung des Notebooks
-convert_notebook_to_python(input_to_convert, output_path)
+#convert_notebook_to_python(input_to_convert, output_path)
 
 # öffnen und ausführen des Notebooks
 def convert_notebook_to_python(input_to_convert, output_file_path):
