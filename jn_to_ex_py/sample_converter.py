@@ -2,9 +2,10 @@
 
 from nbconvert import PythonExporter
 import nbformat
-from datetime import datetime, timezone # erstellen von timestamps 
+from datetime import datetime, timezone # Erstellen von Timestamps 
 import os 
 from markdown_handler.markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
+from analyzer import analyze_notebook  # Importiere die Funktion zum Analysieren des Notebooks
 
 # Aktuellen Pfad abrufen
 current_path = os.path.dirname(os.path.abspath(__file__))
@@ -13,6 +14,28 @@ input_folder = "input"  # Definiere den Namen des Eingabeordners
 output_folder = "output"  # Definiere den Namen des Ausgabeordners
 input_path = os.path.join(current_path, input_folder)
 output_path = os.path.join(current_path, output_folder)
+
+# Definiere Pfad und Namen des Inputs
+input_file_name = r"notebooksample.ipynb"
+input_to_convert = os.path.join(input_path, input_file_name)
+
+# Vor der Konvertierung des Notebooks
+def analyze_notebook(notebook_file):
+    # Analysefunktion aufrufen, um Markdown- und Code-Blöcke zu identifizieren und zu analysieren
+    markdown_blocks, code_blocks = analyze_notebook(notebook_file)
+
+    # Aufrufen der spezifischen Handler für Markdown- und Code-Blöcke
+    for block in markdown_blocks:
+        markdown_handler.process_block(block)
+
+    for block in code_blocks:
+        code_handler.process_block(block)
+
+# Aufruf der Analysefunktion vor der Konvertierung
+markdown_blocks, code_blocks = analyze_notebook(input_to_convert)
+
+# Konvertierung des Notebooks
+convert_notebook_to_python(input_to_convert, output_path)
 
 # öffnen und ausführen des Notebooks
 def convert_notebook_to_python(input_to_convert, output_file_path):
@@ -36,12 +59,6 @@ def convert_notebook_to_python(input_to_convert, output_file_path):
         
     # Extrahiere und zeige Bilder aus Markdown-Blöcken
     extract_and_display_images(os.path.join(input_path, input_file_name))    
-
-# Definiere Pfad und Namen des Inputs
-#input_path = current_path
-input_file_name = r"notebooksample.ipynb"
-input_to_convert = os.path.join(input_path, input_file_name)
-       
 
 # Überprüfung des Dateinamens
 def check_file_name(file_path):
