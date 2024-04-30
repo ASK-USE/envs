@@ -1,5 +1,6 @@
 #media_structure_generator.py
 from url_validator import is_valid_url
+from image_handler import find_image_references
 
 class MediaItem:
     def __init__(self, item_type, reference):
@@ -18,7 +19,7 @@ class MediaHandler:
         media_references = []
 
         # Durchsuche den Notebook-Inhalt nach Bildern, Videos und Links
-        image_references = MediaHandler.extract_images(notebook_content)
+        image_references = find_image_references(notebook_content)
         video_references = MediaHandler.extract_videos(notebook_content)
         link_references = MediaHandler.extract_links(notebook_content)
 
