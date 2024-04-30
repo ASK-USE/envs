@@ -22,14 +22,14 @@ input_to_convert = os.path.join(input_path, input_file_name)
 # Vor der Konvertierung des Notebooks
 def analyze_notebook(notebook_file):
     # Analysefunktion aufrufen, um Markdown- und Code-Blöcke zu identifizieren und zu analysieren
-    markdown_blocks, code_blocks = analyze_notebook(notebook_file)
+    markdown_blocks, code_blocks = analyze_notebook(input_to_convert)
 
     # Aufrufen der spezifischen Handler für Markdown- und Code-Blöcke
     for block in markdown_blocks:
-        markdown_handler.process_block(block)
+        process_markdown_cell(block)
 
     for block in code_blocks:
-        code_handler.process_block(block)
+        process_code_cell(block)
 
 # Aufruf der Analysefunktion vor der Konvertierung
 markdown_blocks, code_blocks = analyze_notebook(input_to_convert)
