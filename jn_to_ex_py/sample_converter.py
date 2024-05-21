@@ -4,6 +4,7 @@ from nbconvert import PythonExporter
 import nbformat
 from datetime import datetime, timezone # Erstellen von Timestamps 
 import os 
+from jn_to_ex_py.analyzer.analyzer import process_code_cell, process_markdown_cell
 from markdown_handler.markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
 from analyzer import analyze_notebook  # Importiere die Funktion zum Analysieren des Notebooks
 
