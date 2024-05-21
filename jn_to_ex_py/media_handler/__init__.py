@@ -1,1 +1,2 @@
 from .media_structure_generator import MediaHandler
+from .url_validator import is_valid_url
