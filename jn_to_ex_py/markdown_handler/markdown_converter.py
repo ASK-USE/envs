@@ -2,8 +2,8 @@
 import os
 import os.path
 import nbformat
-from ..media_handler.media_structure_generator import MediaHandler
-from ..media_handler.image_handler import find_image_references
+from media_handler.media_structure_generator import MediaHandler
+from media_handler.image_handler import find_image_references
 
 def main():
     # Relativer Pfad zum Eingabeordner

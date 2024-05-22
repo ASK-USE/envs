@@ -1,5 +1,8 @@
+# url_validator.py
+
 import json
 import os
+import re
 
 def is_valid_url(url):
     # Hier fügst du deine Validierungslogik ein
@@ -15,3 +18,12 @@ def load_tld_list():
 def is_valid_tld(tld):
     tld_list = load_tld_list()
     return tld in tld_list
+
+
+def check_for_videos(notebook_content, valid_extensions):
+    pattern = rf"\[.*\]\((.*?)\\.({'|'.join(valid_extensions)})\)"
+    for cell in notebook_content:
+        if cell["cell_type"] == "markdown":
+            if re.search(pattern, cell["source"]):
+                return True
+    return False
