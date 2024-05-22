@@ -1,5 +1,7 @@
 #markdown_converter.py
 from media_handler.media_structure_generator import MediaHandler
+import nbformat
+from media_handler.image_handler import find_image_references
 
 def convert_markdown_to_python(notebook_file):
     # Funktion zur Konvertierung des Markdown-Notebooks in eine Python-Datei
