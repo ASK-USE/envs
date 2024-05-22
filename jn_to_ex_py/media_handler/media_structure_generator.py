@@ -1,7 +1,7 @@
-#media_structure_generator.py
-from url_validator import is_valid_url
-from image_handler import find_image_references
-from video_handler import find_video_references
+# media_structure_generator.py
+from .url_validator import is_valid_url
+from .image_handler import find_image_references
+from .video_handler import find_video_references
 
 class MediaItem:
     def __init__(self, item_type, reference):
@@ -34,19 +34,20 @@ class MediaHandler:
     @staticmethod
     def extract_images(notebook_content):
         # Implementierung zum Extrahieren der Bildverweise aus dem Notebook-Inhalt
-        # ...
-        return ["path/to/image1.png", "https://example.com/image2.jpg"]
+        image_references = find_image_references(notebook_content)
+        return [MediaItem("image", reference) for reference in image_references]
 
     @staticmethod
     def extract_videos(notebook_content):
         # Implementierung zum Extrahieren der Videoverweise aus dem Notebook-Inhalt
-        # ...
-        return ["path/to/video.mp4", "https://example.com/video.mp4"]
+        video_references = find_video_references(notebook_content)
+        return [MediaItem("video", reference) for reference in video_references]
 
     @staticmethod
     def extract_links(notebook_content):
+        # Implementierung zum Extrahieren der Linkverweise aus dem Notebook-Inhalt
         links = []
         for url in notebook_content:
             if is_valid_url(url):
                 links.append(url)
-        return links
+        return [MediaItem("link", url) for url in links]
