@@ -14,3 +14,21 @@ Traceback (most recent call last):
     if cell["cell_type"] == "markdown":
        ~~~~^^^^^^^^^^^^^
 TypeError: 'ellipsis' object is not subscriptable
+
+
+sh-5.2$ /bin/python /home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py
+Traceback (most recent call last):
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py", line 8, in <module>
+    from markdown_handler.markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/markdown_handler/markdown_converter.py", line 2, in <module>
+    from media_handler.media_structure_generator import MediaHandler
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/media_structure_generator.py", line 4, in <module>
+    from .video_handler import find_video_references
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/video_handler.py", line 18, in <module>
+    video_references = find_video_references(notebook_content, valid_extensions)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/video_handler.py", line 9, in find_video_references
+    if cell["cell_type"] == "markdown":
+       ~~~~^^^^^^^^^^^^^
+TypeError: 'ellipsis' object is not subscriptable
