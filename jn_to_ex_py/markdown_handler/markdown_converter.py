@@ -1,5 +1,5 @@
 #markdown_converter.py
-from media_handler import MediaHandler
+from media_handler.media_structure_generator import MediaHandler
 
 def convert_markdown_to_python(notebook_file):
     # Funktion zur Konvertierung des Markdown-Notebooks in eine Python-Datei
