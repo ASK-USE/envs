@@ -4,6 +4,14 @@ import json
 import os
 import re
 
+# Beispieldaten für notebook_content
+notebook_content = [
+    {"cell_type": "markdown", "source": "# Heading\n[Some video](video.mp4)"}, 
+    {"cell_type": "code", "source": "print('Hello')"},
+    {"cell_type": "markdown", "source": "Another [video](video.avi)"}
+]
+valid_extensions = ['mp4', 'avi', 'mov', 'mkv', 'wmv']
+
 def is_valid_url(url):
     # Hier fügst du deine Validierungslogik ein
     # Zum Beispiel kannst du einfach überprüfen, ob die URL mit "http://" oder "https://" beginnt

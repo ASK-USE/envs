@@ -29,8 +29,6 @@ for block in markdown_blocks:
 for block in code_blocks:
     process_code_cell(block)
 
-from url_validator import check_for_videos
-
 # ... Ihr Code ...
 
 if check_for_videos(notebook_content, valid_extensions):
