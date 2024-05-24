@@ -1,7 +1,7 @@
 # video_handler.py
 
 import re
-from media_handler.url_validator import notebook_content, valid_extensions
+from analyzer.analyzer import notebook_content, valid_extensions
 
 def find_video_references(notebook_content, valid_extensions):
     video_references = []

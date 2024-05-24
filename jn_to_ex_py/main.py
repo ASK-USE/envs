@@ -6,7 +6,7 @@ from datetime import datetime, timezone  # Erstellen von Timestamps
 import os
 from analyzer.analyzer import process_code_cell, process_markdown_cell, analyze_notebook 
 from markdown_handler.markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
-from media_handler.url_validator import check_for_videos, notebook_content, valid_extensions
+from analyzer.analyzer import check_for_videos, notebook_content, valid_extensions
 from media_handler.video_handler import find_video_references  # Importiere die Funktion zum Extrahieren und Anzeigen von Videos aus Markdown-Blöcken
 # Aktuellen Pfad abrufen
 current_path = os.path.dirname(os.path.abspath(__file__))
