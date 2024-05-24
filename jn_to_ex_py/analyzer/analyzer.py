@@ -1,4 +1,5 @@
 #analyzer.py
+
 import nbformat
 import json
 import os
@@ -17,11 +18,9 @@ def analyze_notebook(notebook_file):
     for cell in notebook_content.cells:
         # Überprüfe den Typ der Zelle (Code oder Markdown)
         if cell.cell_type == "code":
-            code_block = process_code_cell(cell)
-            code_blocks.append(code_block)
+            code_blocks.append(cell)
         elif cell.cell_type == "markdown":
-            markdown_block = process_markdown_cell(cell)
-            markdown_blocks.append(markdown_block)
+            markdown_blocks.append(cell)
 
     return markdown_blocks, code_blocks
 
@@ -58,9 +57,8 @@ def is_valid_tld(tld):
     tld_list = load_tld_list()
     return tld in tld_list
 
-
 def check_for_videos(notebook_content, valid_extensions):
-    pattern = rf"\[.*\]\((.*?)\\.({'|'.join(valid_extensions)})\)"
+    pattern = rf"\[.*\]\((.*?)\.({'|'.join(valid_extensions)})\)"
     for cell in notebook_content:
         if cell["cell_type"] == "markdown":
             if re.search(pattern, cell["source"]):
