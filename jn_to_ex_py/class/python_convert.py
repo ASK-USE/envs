@@ -1,5 +1,4 @@
 # /class/python_convert.py
-# /class/python_convert.py
 
 from media_handler.image_handler import find_image_references
 from media_handler.video_handler import find_video_references
