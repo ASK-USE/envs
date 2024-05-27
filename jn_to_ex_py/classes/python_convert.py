@@ -1,7 +1,6 @@
-# /class/python_convert.py
+# /classes/python_convert.py
 
-from media_handler.image_handler import find_image_references
-from media_handler.video_handler import find_video_references
+from analyzer.analyzer import find_image_references, find_video_references, find_url_references
 
 class MediaItem:
     def __init__(self, item_type, reference):
@@ -22,7 +21,7 @@ class PythonConvert:
         # Durchsuche den Notebook-Inhalt nach Bildern, Videos und Links
         image_references = find_image_references(notebook_content)
         video_references = find_video_references(notebook_content)
-        link_references = PythonConvert.extract_links(notebook_content)
+        link_references = find_url_references(notebook_content)
 
         # Füge die extrahierten Referenzen zur Liste media_references hinzu
         media_references.extend(image_references)
