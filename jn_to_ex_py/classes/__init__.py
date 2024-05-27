@@ -1,1 +1,1 @@
-# /class/__init__.py
+# /classes/__init__.py
