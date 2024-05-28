@@ -1,6 +1,6 @@
 # /media_handler/media_structure_generator.py 
 
-from ..classes.python_convert import PythonConvert  # Added colon and removed space
+from classes.python_convert import PythonConvert  # Added colon and removed space
 
 class StructureGenerator:
     @staticmethod

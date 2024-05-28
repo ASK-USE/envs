@@ -15,12 +15,12 @@ class MediaItem:
 
 class PythonConvert:
     @staticmethod
-    def extract_media_references(notebook_content):
+    def extract_media_references(notebook_content, valid_extensions):
         media_references = []
 
         # Durchsuche den Notebook-Inhalt nach Bildern, Videos und Links
-        image_references = find_image_references(notebook_content)
-        video_references = find_video_references(notebook_content)
+        image_references = find_image_references(notebook_content, valid_extensions)
+        video_references = find_video_references(notebook_content, valid_extensions)
         link_references = find_url_references(notebook_content)
 
         # Füge die extrahierten Referenzen zur Liste media_references hinzu
