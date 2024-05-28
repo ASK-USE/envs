@@ -4,12 +4,12 @@ from classes.python_convert import PythonConvert  # Added colon and removed spac
 
 class StructureGenerator:
     @staticmethod
-    def generate_structure(notebook_content):
+    def generate_structure(notebook_content, valid_extensions):
         # Instanz der PythonConvert-Klasse erstellen
         converter = PythonConvert()
 
         # Media-Referenzen extrahieren
-        media_references = converter.extract_media_references(notebook_content)
+        media_references = converter.extract_media_references(notebook_content, valid_extensions )
         
         # Markdown- und Codezellen getrennt verarbeiten
         markdown_cells = []

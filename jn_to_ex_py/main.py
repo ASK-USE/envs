@@ -4,7 +4,7 @@ import os
 import nbformat
 from nbconvert import PythonExporter
 from datetime import datetime, timezone
-from analyzer.analyzer import analyze_notebook
+from analyzer.analyzer import analyze_notebook, valid_extensions
 from generator.media_structure_generator import StructureGenerator
 
 # Aktuellen Pfad abrufen
@@ -23,7 +23,7 @@ notebook_content, markdown_blocks, code_blocks, image_references, video_referenc
 # notebook_content, markdown_blocks, code_blocks = analyze_notebook(input_to_convert) # old call
 
 # Generierung der Struktur mit dem StructureGenerator
-structure = StructureGenerator.generate_structure(notebook_content)
+structure = StructureGenerator.generate_structure(notebook_content, valid_extensions)
 
 # Konvertierung des Notebooks
 def convert_notebook_to_python(input_to_convert, output_file_path):

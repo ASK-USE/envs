@@ -25,9 +25,10 @@ def analyze_notebook(notebook_file):
             code_blocks.append(cell)
         elif cell.cell_type == "markdown":
             markdown_blocks.append(cell)
-            image_references.extend(find_image_references(cell["source"], valid_extensions['image']))
-            video_references.extend(find_video_references(cell["source"], valid_extensions['video']))
-            url_references.extend(find_url_references(cell["source"]))
+            source_text = cell["source"]
+            image_references.extend(find_image_references(source_text, valid_extensions['image']))
+            video_references.extend(find_video_references(source_text, valid_extensions['video']))
+            url_references.extend(find_url_references(source_text))
 
     return notebook_content, markdown_blocks, code_blocks, image_references, video_references
 
