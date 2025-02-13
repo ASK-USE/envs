@@ -1,0 +1,65 @@
+sh-5.2$ /bin/python /home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py
+Traceback (most recent call last):
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py", line 8, in <module>
+    from markdown_handler.markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/markdown_handler/markdown_converter.py", line 2, in <module>
+    from media_handler.media_structure_generator import MediaHandler
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/media_structure_generator.py", line 3, in <module>
+    from .image_handler import find_image_references
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/image_handler.py", line 16, in <module>
+    image_references = find_image_references(notebook_content)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/image_handler.py", line 8, in find_image_references
+    if cell["cell_type"] == "markdown":
+       ~~~~^^^^^^^^^^^^^
+TypeError: 'ellipsis' object is not subscriptable
+
+
+sh-5.2$ /bin/python /home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py
+Traceback (most recent call last):
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py", line 8, in <module>
+    from markdown_handler.markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/markdown_handler/markdown_converter.py", line 2, in <module>
+    from media_handler.media_structure_generator import MediaHandler
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/media_structure_generator.py", line 4, in <module>
+    from .video_handler import find_video_references
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/video_handler.py", line 18, in <module>
+    video_references = find_video_references(notebook_content, valid_extensions)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/video_handler.py", line 9, in find_video_references
+    if cell["cell_type"] == "markdown":
+       ~~~~^^^^^^^^^^^^^
+TypeError: 'ellipsis' object is not subscriptable
+
+
+Einige Fehler sind nun behoben: 
+================================
+sh-5.2$ /home/ask/Dokumente/repositorys/.venv/bin/python /home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py
+Traceback (most recent call last):
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py", line 8, in <module>
+    from markdown_handler.markdown_converter import extract_and_display_images  # Importiere die Funktion zum Extrahieren und Anzeigen von Bildern aus Markdown-Blöcken
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/markdown_handler/markdown_converter.py", line 3, in <module>
+    from ..media_handler.media_structure_generator import MediaHandler
+ImportError: attempted relative import beyond top-level package
+
+
+neue Fehler
+============
+sh-5.2$ /home/ask/Dokumente/repositorys/.venv/bin/python /home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/media_structure_generator.py
+Traceback (most recent call last):
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/media_handler/media_structure_generator.py", line 2, in <module>
+    from .url_validator import is_valid_url
+ImportError: attempted relative import with no known parent package
+
+nächster fehler: 
+================
+/home/ask/Dokumente/repositorys/.venv/bin/python /(.venv) /home/ask/Dokumente/repositorys/.venv/bin/python /home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py
+[]
+Traceback (most recent call last):
+  File "/home/ask/Dokumente/repositorys/envs/jn_to_ex_py/main.py", line 24, in <module>
+    markdown_blocks, code_blocks = analyze_notebook(input_to_convert)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
