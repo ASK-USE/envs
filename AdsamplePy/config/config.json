@@ -1,0 +1,12 @@
+{
+    "main_app": "main.py",
+    "additional_apps": [
+        "adwareon.py"
+    ],
+    "installer_options": {
+        "adwareon": {
+            "description": "Install AdwareOn (recommended)",
+            "default_checked": true
+        }
+    }
+}
